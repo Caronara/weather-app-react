@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function () {
+export default function Weather() {
   return (
     <div className="Weather">
       <div className="row">
@@ -25,14 +25,14 @@ export default function () {
           <h2>
             <span className="temperature"> 12 </span>
             <span className="units">
-              <a href="#" className="celsius-link link-inactive">
+              <button className="celsius-link link-inactive">
                 {" "}
                 °C{" "}
-              </a>{" "}
+              </button>{" "}
               |
-              <a href="#" className="fahrenheit-link">
+              <button className="fahrenheit-link">
                 °F{" "}
-              </a>
+              </button>
             </span>
           </h2>
 

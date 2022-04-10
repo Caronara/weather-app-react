@@ -55,3 +55,12 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.Weather .fahrenheit-link,
+.Weather .celsius-link {
+  border: none;
+  background: none;
+  padding: none;
+  cursor: pointer;
+  text-decoration: none;
+}
