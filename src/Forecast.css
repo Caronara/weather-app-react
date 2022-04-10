@@ -1,0 +1,11 @@
+.Forecast .col {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.Forecast .day:hover {
+  background-color: #cde7f3;
+  border-radius: 10px;
+}

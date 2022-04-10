@@ -1,0 +1,57 @@
+.Weather .precipitation-wind {
+  margin-left: 35px;
+  position: absolute;
+  top: 187px;
+}
+
+.Weather h1 {
+  font-weight: bolder;
+  margin-top: 0px;
+}
+
+.Weather .weather-emoji {
+  font-size: 70px;
+}
+
+.Weather .precipitation-wind {
+  font-size: smaller;
+  margin-top: 90px;
+}
+
+.Weather .units {
+  font-size: 18px;
+  position: relative;
+  top: -10px;
+}
+
+.Weather a {
+  text-decoration: none;
+}
+
+.Weather .link-inactive {
+  color: #0f213f;
+  font-weight: bold;
+}
+.Weather .link-inactive:hover {
+  color: #0f213f;
+  cursor: default;
+}
+
+.Weather .current-weather {
+  font-size: 25px;
+  font-weight: bolder;
+}
+.Weather hr {
+  margin-top: 0px;
+}
+
+.Weather .row {
+  margin-top: 1px;
+}
+
+.Weather .col {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

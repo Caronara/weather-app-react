@@ -1,0 +1,23 @@
+.Form .input {
+  background-color: #fef1eb99;
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 8px;
+}
+
+.Form .input:focus-visible {
+  outline: none;
+}
+
+.Form .search {
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 8px;
+}
+.Form .current-location {
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  padding-top: 8px;
+}
