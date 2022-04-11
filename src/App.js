@@ -8,17 +8,17 @@ import "./Forecast.css";
 import Footer from "./Footer";
 import "./Footer.css";
 
-function App() {
+export default function App() {
   return (
     <div>
       <div className="App">
-        <Form />
-        <Weather />
-        <Forecast />
+        <div className="container">
+          <Form />
+          <Weather />
+          <Forecast />
+        </div>
       </div>
       <Footer />
     </div>
   );
 }
-
-export default App;
