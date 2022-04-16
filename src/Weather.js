@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 
@@ -17,6 +17,13 @@ export default function Weather(props) {
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
+
+  useEffect(
+    function () {
+      setWeatherData({ ready: false });
+    },
+    [props.defaultCity]
+  );
 
   if (weatherData.ready) {
     return (

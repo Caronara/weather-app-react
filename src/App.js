@@ -7,14 +7,20 @@ import Forecast from "./Forecast";
 import "./Forecast.css";
 import Footer from "./Footer";
 import "./Footer.css";
+import { useState } from "react";
 
 export default function App() {
+  const [city, setCity] = useState("Vienna");
+
+  function handleCitySelect(city) {
+    setCity(city);
+  }
   return (
     <div>
       <div className="App">
         <div className="container">
-          <Form defaultCity="Vienna" />
-          <Weather defaultCity="Vienna" />
+          <Form onCitySelect={handleCitySelect} />
+          <Weather defaultCity={city} />
           <Forecast />
         </div>
       </div>
