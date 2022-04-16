@@ -13,7 +13,8 @@ export default function Weather(props) {
       city: response.data.name,
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
-      date: new Date(response.data.dt *1000),
+      date: new Date(response.data.dt * 1000),
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
 
@@ -36,10 +37,15 @@ export default function Weather(props) {
             <h1 id="city">{weatherData.city}</h1>
 
             <div className="currentDate">
-              <span> <FormattedDate date={weatherData.date} /></span>
+              <span>
+                {" "}
+                <FormattedDate date={weatherData.date} />
+              </span>
             </div>
 
-            <div className="weather-emoji">☀</div>
+            <div className="weather-emoji">
+              <img src={weatherData.icon} alt="" />
+            </div>
 
             <h2>
               <span className="temperature">
