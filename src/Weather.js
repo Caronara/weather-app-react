@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
-  
-  const [weatherData, setWeatherData] = useState({ready: false});
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     setWeatherData({
@@ -13,11 +13,8 @@ export default function Weather(props) {
       city: response.data.name,
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
-      day: "Sunday",
-      time: "17:00",
+      date: new Date(response.data.dt *1000),
     });
-
-    
   }
 
   if (weatherData.ready) {
@@ -39,8 +36,7 @@ export default function Weather(props) {
             <h1 id="city">{weatherData.city}</h1>
 
             <div className="currentDate">
-              <span> {weatherData.day}</span>{" "}
-              <span className="time">{weatherData.time}</span>
+              <span> <FormattedDate date={weatherData.date} /></span>
             </div>
 
             <div className="weather-emoji">☀</div>
