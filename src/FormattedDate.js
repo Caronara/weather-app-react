@@ -11,13 +11,13 @@ export default function FormattedDate(props) {
     "Saturday",
   ];
   const day = days[props.date.getDay()];
-  const hours = props.date.getHours();
+  let hours = props.date.getHours();
   if (hours < 10) {
-    const hours = `0${hours}`;
+    hours = `0${hours}`;
   }
-  const minutes = props.date.getMinutes();
+  let minutes = props.date.getMinutes();
   if (minutes < 10) {
-    const minutes = `0${hours}`;
+    minutes = `0${minutes}`;
   }
 
   return (
