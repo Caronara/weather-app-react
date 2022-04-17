@@ -7,6 +7,7 @@ export default function Footer() {
         href="https://github.com/Caronara/weather-app-react"
         className="github"
         target="_blank"
+        rel="noreferrer"
       >
         Open-source code
       </a>
