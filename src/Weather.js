@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import Temperature from "./Temperature";
+import Forecast from "./Forecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -16,6 +17,7 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      coordinates: response.data.coord,
     });
   }
 
@@ -57,7 +59,6 @@ export default function Weather(props) {
 
             <h2>
               <Temperature celsius={weatherData.temperature} />
-              
             </h2>
 
             <p className="current-weather text-capitalize">
@@ -67,6 +68,7 @@ export default function Weather(props) {
         </div>
 
         <hr />
+        <Forecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

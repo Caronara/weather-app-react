@@ -3,7 +3,6 @@ import Form from "./Form";
 import "./Form.css";
 import Weather from "./Weather";
 import "./Weather.css";
-import Forecast from "./Forecast";
 import "./Forecast.css";
 import Footer from "./Footer";
 import "./Footer.css";
@@ -21,7 +20,6 @@ export default function App() {
         <div className="container">
           <Form onCitySelect={handleCitySelect} />
           <Weather defaultCity={city} />
-          <Forecast />
         </div>
       </div>
       <Footer />
