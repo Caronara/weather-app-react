@@ -1,4 +1,5 @@
 import React from "react";
+import "./ForecastDay.css";
 
 export default function ForecastDay(props) {
   function roundMaxTemperature() {
@@ -21,10 +22,11 @@ export default function ForecastDay(props) {
   }
 
   return (
-    <div>
+    <div className="ForecastDay">
       <strong>{day()}</strong>
       <br />
       <img
+        className="icon"
         src={`http://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`}
         alt=""
       />
