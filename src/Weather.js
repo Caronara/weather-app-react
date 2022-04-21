@@ -28,6 +28,8 @@ export default function Weather(props) {
     [props.defaultCity]
   );
 
+  
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
