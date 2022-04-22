@@ -18,7 +18,7 @@ export default function App() {
     <div>
       <div className="App">
         <div className="container">
-          <Form defaultCity={city}  onCitySelect={handleCitySelect} />
+          <Form  onCitySelect={handleCitySelect} />
           <Weather defaultCity={city} />
         </div>
       </div>

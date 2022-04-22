@@ -1,16 +1,29 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function Form(props) {
-  const [city, setCity] = useState(props.defaultCity);
+  const [inputValue, setInputValue] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    props.onCitySelect(city);
-    setCity("");
+    props.onCitySelect(inputValue);
+    setInputValue("");
   }
 
   function handleCityChange(event) {
-    setCity(event.target.value);
+    setInputValue(event.target.value);
+  }
+
+  function handleCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+      let apiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
+      const apiData = await axios.get(apiUrl);
+      props.onCitySelect(apiData.data.locality);
+      console.log(apiData.data.locality);
+    });
   }
 
   return (
@@ -23,7 +36,7 @@ export default function Form(props) {
         autoComplete="off"
         autoFocus
         onChange={handleCityChange}
-        value={city}
+        value={inputValue}
       />
       <input className="search" type="submit" value="🔍" />
 
@@ -31,6 +44,7 @@ export default function Form(props) {
         className="current-location"
         type="submit"
         value="current location  📍"
+        onClick={handleCurrentLocation}
       />
     </form>
   );
