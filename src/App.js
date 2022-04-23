@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function App() {
   const [city, setCity] = useState("Vienna");
-
+  const [unit, setUnit] = useState("celsius");
   function handleCitySelect(city) {
     setCity(city);
   }
@@ -19,7 +19,7 @@ export default function App() {
       <div className="App">
         <div className="container">
           <Form  onCitySelect={handleCitySelect} />
-          <Weather defaultCity={city} />
+          <Weather defaultCity={city} unit={unit} onUnitChange={setUnit} />
         </div>
       </div>
       <Footer />

@@ -64,3 +64,8 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+.loading {
+  text-align: center;
+  margin: 25px;
+}

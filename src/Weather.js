@@ -3,6 +3,7 @@ import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import Temperature from "./Temperature";
 import Forecast from "./Forecast";
+import { CircularProgress } from "@mui/material";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -27,8 +28,6 @@ export default function Weather(props) {
     },
     [props.defaultCity]
   );
-
-  
 
   if (weatherData.ready) {
     return (
@@ -60,7 +59,11 @@ export default function Weather(props) {
             </div>
 
             <h2>
-              <Temperature celsius={weatherData.temperature} />
+              <Temperature
+                celsius={weatherData.temperature}
+                unit={props.unit}
+                onUnitChange={props.onUnitChange}
+              />
             </h2>
 
             <p className="current-weather text-capitalize">
@@ -70,7 +73,11 @@ export default function Weather(props) {
         </div>
 
         <hr />
-        <Forecast coordinates={weatherData.coordinates} />
+        <Forecast
+          coordinates={weatherData.coordinates}
+          unit={props.unit}
+          onUnitChange={props.onUnitChange}
+        />
       </div>
     );
   } else {
@@ -79,6 +86,11 @@ export default function Weather(props) {
 
     axios.get(apiUrl).then(handleResponse);
 
-    return "Loading...";
+    return (
+      <div className="loading">
+        <CircularProgress />
+        <div>Enter a city</div>
+      </div>
+    );
   }
 }
